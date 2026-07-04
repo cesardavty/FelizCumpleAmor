@@ -1,125 +1,114 @@
-/*Evitamos el Resaltado Azul de los Moviles*/
+/* mobile.css */
+
+/* Evitamos el resaltado azul y selección de texto en móviles */
 * {
   -webkit-tap-highlight-color: transparent;
   outline: none;
-  user-select: none;         /* Evita seleccionar texto al tocar */
-  -webkit-user-select: none; /* Para Safari/iOS */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
-/* Mesa */
-.soporte {
-  width: 370px;
-  left: -6px;
+/* Reducimos el contenedor completo proporcionalmente para que quepa en la pantalla del móvil */
+.portaretrato-torta-caja {
+  width: 100%;
+  max-width: 480px;
+  gap: 10px;
+  bottom: -35px;
+  /* Escalamos el grupo completo manteniendo la alineación original de PC */
+  transform: scale(0.68);
+  transform-origin: center bottom;
 }
 
-.soporte::before {
-  width: 100px;
-  height: 1000px;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 18px;
-}
-
-.soporte::after {
-  width: 95px;
-  height: 1000px;
-  left: 85px;
-}
-
-/*Mensaje*/
-.happy-birthday {
-  top: -100%;
-  left: 120px;
-}
-
-/*Objetos de la mesa*/
+/* Ajustes individuales mínimos para mantener la armonía visual en tamaño móvil */
 .portaretrato {
-  transform: scale(0.75);
-  left: 65px;
-  bottom: -12px;
+  transform: scale(0.95);
+  bottom: 0px;
+  left: 0px;
 }
 
 .torta {
-  transform: scale(0.75);
-  left: 15px;
-  bottom: -20px;
-}
-
-.caja {
-  transform: scale(0.75);
-  left: -65px;
-  bottom: -26px;
+  transform: scale(1);
+  bottom: 0px;
+  left: 0px;
 }
 
 .vela {
-  transform: scale(0.75);
-  bottom: 94px;
-  left: 145px;
+  transform: scale(1);
+  bottom: 140px;
+  left: calc(50% - 7.5px);
 }
 
 .llama {
-  bottom: 160px;
-  left: 142px;
+  bottom: 210px;
+  left: calc(50% - 10px);
 }
 
+.caja {
+  transform: scale(1);
+  bottom: 0px;
+  left: 0px;
+}
+
+/* Ajuste de la mesa para el ancho del teléfono */
+.soporte {
+  width: 340px;
+  left: 0px;
+  bottom: -35px;
+}
+
+.soporte::before {
+  width: 80px;
+  left: calc(50% - 40px);
+}
+
+.soporte::after {
+  width: 75px;
+  left: calc(50% - 95px);
+  box-shadow: 115px 0 rgba(255, 182, 193, 1);
+}
+
+/* Mensaje "Feliz Cumple" centrado y proporcional */
+.happy-birthday {
+  font-size: 32px;
+  top: -190px;
+  left: 50%;
+  width: max-content;
+}
+
+/* Ajuste de la carta para que no se corte en pantallas de teléfonos */
 .carta {
-  animation: none; /* Evitar mini zoom */
-  transform: scale(0.8);
+  transform: scale(0.85);
   transform-origin: center center;
-  margin: 0 auto; /* Centrar horizontalmente */
+  max-width: 90%;
+  padding: 24px;
 }
 
-/* Nuevo media query para pantallas más pequeñas */
-@media only screen and (max-width: 400px) {
+.carta h2 {
+  font-size: 24px;
+}
 
+.carta p {
+  font-size: 15px;
+}
+
+/* Optimización extrema para pantallas muy pequeñas (menos de 360px de ancho) */
+@media only screen and (max-width: 360px) {
+  .portaretrato-torta-caja {
+    transform: scale(0.58);
+  }
+  
   .soporte {
-    width: 300px;
+    width: 280px;
   }
-
-  .soporte::after {
-    left: 45px;
-    top: 20px;
-  }
-
+  
   .happy-birthday {
-    font-size: 36px;
-    top: -100%;
-    left: 130px; 
+    font-size: 28px;
+    top: -170px;
   }
-
-  .portaretrato {
-    transform: scale(0.65);
-    left: 92px;
-    bottom: -16px;
-  }
-
-  .torta {
-    transform: scale(0.63);
-    left: 17px;
-    bottom: -27px;
-  }
-
-  .caja {
-    transform: scale(0.65);
-    left: -100px;
-    bottom: -35px;
-  }
-
-  .vela {
-    transform: scale(0.65);
-    bottom: 74px;
-    left: 160px;
-  }
-
-  .llama {
-    bottom: 138px;
-    left: 157px;
-  }
-
+  
   .carta {
-    transform: scale(0.7);
+    transform: scale(0.75);
   }
 }
-
